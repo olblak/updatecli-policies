@@ -19,7 +19,7 @@ def find_policy_yaml(start_dir=".") -> List[str]:
     for root, _, files in os.walk(start_dir):
         if "Policy.yaml" in files:
             matches.append(os.path.join(root, "Policy.yaml"))
-    return matches
+    return sorted(matches)
 
 def load_policy_metadata(file_path: str) -> PolicyMetadata:
     """Load a Policy.yaml file and unmarshal it into a PolicyMetadata object."""
